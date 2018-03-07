@@ -1,0 +1,57 @@
+{% extends 'testfunc/base.html' %}
+{% load i18n %}
+
+{% block title %}index.html block:title{% endblock %}
+
+
+
+{% block content %}
+
+<form method="POST" >
+
+{% csrf_token %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
+{{select_language}}<select name="language_code">
+
+{% if LANGUAGE_CODE ==  'zh-hant' %}
+<option value="zh-hant" selected>繁體</option>
+{% else %}
+<option value="zh-hant">繁體</option>
+{% endif %}
+
+{% if LANGUAGE_CODE ==  'zh-hans' %}
+<option value="zh-hans" selected>簡體</option>
+{% else %}
+<option value="zh-hans">簡體</option>
+{% endif %}
+
+{% if LANGUAGE_CODE ==  'en' %}
+<option value="en" selected>英文</option>
+{% else %}
+<option value="en">英文</option>
+{% endif %}
+
+
+</select>
+
+<input type="submit" class="btn btn-primary" value="Submit">
+
+<br>
+zh-hans(簡體) <br>
+zh-hant(繁體) <br>
+en(英文) <br>
+</form>
+
+<hr>
+
+{{cookie_title}}
+<br>
+{{author_title}}
+<br>
+
+LANGUAGE_CODE : {{LANGUAGE_CODE}}
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'testfunc/base.html' %}
+
+{% block title %}index.html block:title{% endblock %}
+
+
+
+{% block content %}
+
+<form method="POST" >
+
+{% csrf_token %}
+請輸入您的lucky number(by cookie): <input type="text" name="lucky_number" value="">
+
+<input type="submit" class="btn btn-primary" value="Submit">
+
+</form>
+cookie(lucky_number) : {{lucky_number}} <br>
+
+{% endblock %}
